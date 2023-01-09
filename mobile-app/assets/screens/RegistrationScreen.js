@@ -1,5 +1,3 @@
-import React from "react";
-import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   Text,
@@ -13,7 +11,7 @@ const image = {
   url: "https://monosnap.com/file/1RPWuUVoZuooxroJyUa1q6Wk0GaJnG",
 };
 
-export default function App() {
+const RegistrationScreen = () => {
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -21,10 +19,9 @@ export default function App() {
         resizeMode="cover"
         style={styles.img}
       ></ImageBackground>
-      <StatusBar style="auto" />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -38,3 +35,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+export default RegistrationScreen;
