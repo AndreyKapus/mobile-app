@@ -46,14 +46,14 @@ const RegistrationScreen = ({navigation}) => {
                   SIGN UP
                 </Text>
               </TouchableOpacity>
-              <View
+              <TouchableOpacity
                 style={{marginTop: 20}}>
-                <Text 
-                  onPress={() => navigation.navigate('loginScreen')}
-                  style={styles.navigationText}>
-                  Go to login
-                </Text>
-              </View>
+                      <Text 
+                        onPress={() => navigation.navigate('loginScreen')}
+                        style={styles.navigationText}>
+                        Go to login
+                  </Text>
+              </TouchableOpacity>
             </View>
         </ImageBackground>
         <StatusBar style="auto" />
@@ -111,9 +111,15 @@ const RegistrationScreen = ({navigation}) => {
       color: '#fff',
       fontSize: 18,
     },
+
+    navigationTitle: {
+      color: '#fff',
+      marginRight: '10',
+    },
+
     navigationText: {
       color: '#fff',
-    }
+    },
   });
 
   export default RegistrationScreen;

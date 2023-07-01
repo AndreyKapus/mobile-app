@@ -37,14 +37,17 @@ const LoginScreen = ({navigation}) => {
                   SIGN IN
                 </Text>
               </TouchableOpacity>
-              <View
-                style={{marginTop: 20}}>
-                <Text 
+              <TouchableOpacity
+                style={styles.navButton}>
+                  <Text style={styles.navigationTitle}>
+                    First time in app?{' '}
+                  <Text 
                     onPress={() => navigation.navigate('RegistrationScreen')}
                     style={styles.navigationText}>
                     Go to register
                 </Text>
-              </View>
+                  </Text>
+              </TouchableOpacity>
             </View>
         </ImageBackground>
         <StatusBar style="auto" />
@@ -102,8 +105,16 @@ const LoginScreen = ({navigation}) => {
       color: '#fff',
       fontSize: 18,
     },
-    navigationText: {
+    navButton: {
+      marginTop: 20,
+      alignSelf: 'center',
+    },
+    navigationTitle: {
       color: '#fff',
+    },
+    navigationText: {
+      color: `#ff7f50`,
+      fontSize: 18,
     },
     navigationViev: {
       margin: '10',
