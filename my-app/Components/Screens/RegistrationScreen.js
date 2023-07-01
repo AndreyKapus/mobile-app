@@ -8,7 +8,7 @@ const initialState = {
     password: ''
   }
 
-const RegistrationScreen = () => {
+const RegistrationScreen = ({navigation}) => {
     const [state, setState] = useState(initialState)
 
     return (
@@ -46,6 +46,14 @@ const RegistrationScreen = () => {
                   SIGN UP
                 </Text>
               </TouchableOpacity>
+              <View
+                style={{marginTop: 20}}>
+                <Text 
+                  onPress={() => navigation.navigate('loginScreen')}
+                  style={styles.navigationText}>
+                  Go to login
+                </Text>
+              </View>
             </View>
         </ImageBackground>
         <StatusBar style="auto" />
@@ -102,6 +110,9 @@ const RegistrationScreen = () => {
     btnText: {
       color: '#fff',
       fontSize: 18,
+    },
+    navigationText: {
+      color: '#fff',
     }
   });
 

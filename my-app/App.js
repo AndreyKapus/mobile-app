@@ -5,15 +5,21 @@ import { NavigationContainer } from "@react-navigation/native";
 import LoginScreen from './Components/Screens/LoginScreen';
 import RegistrationScreen from './Components/Screens/RegistrationScreen';
 
-const Stack = createStackNavigator();
+const AuthStack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='loginScreen' component={LoginScreen}/>
-        <Stack.Screen name='RegistrationScreen' component={RegistrationScreen}/>
-      </Stack.Navigator>
+      <AuthStack.Navigator>
+        <AuthStack.Screen 
+          options={{headerShown: false}}
+          name='loginScreen' 
+          component={LoginScreen}/>
+        <AuthStack.Screen 
+          options={{headerShown: false}}
+          name='RegistrationScreen' 
+          component={RegistrationScreen}/>
+      </AuthStack.Navigator>
     </NavigationContainer>
 
   );
