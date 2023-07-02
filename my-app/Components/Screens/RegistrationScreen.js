@@ -47,11 +47,14 @@ const RegistrationScreen = ({navigation}) => {
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={{marginTop: 20}}>
-                      <Text 
-                        onPress={() => navigation.navigate('loginScreen')}
-                        style={styles.navigationText}>
-                        Go to login
+                style={styles.navButton}>
+                  <Text style={styles.navigationTitle}>
+                    Go to {' '}
+                  <Text 
+                    onPress={() => navigation.navigate('loginScreen')}
+                    style={styles.navigationText}>
+                    register
+                </Text>
                   </Text>
               </TouchableOpacity>
             </View>
@@ -112,14 +115,24 @@ const RegistrationScreen = ({navigation}) => {
       fontSize: 18,
     },
 
+    navButton: {
+      marginTop: 20,
+      alignSelf: 'center',
+    },
+
     navigationTitle: {
       color: '#fff',
-      marginRight: '10',
+      fontSize: 18,
     },
 
     navigationText: {
-      color: '#fff',
+      color: `#ff7f50`,
+      fontSize: 20,
     },
+
+    navigationViev: {
+      margin: '10',
+    }
   });
 
   export default RegistrationScreen;

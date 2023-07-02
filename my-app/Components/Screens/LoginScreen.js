@@ -111,10 +111,11 @@ const LoginScreen = ({navigation}) => {
     },
     navigationTitle: {
       color: '#fff',
+      fontSize: 18,
     },
     navigationText: {
       color: `#ff7f50`,
-      fontSize: 18,
+      fontSize: 20,
     },
     navigationViev: {
       margin: '10',
