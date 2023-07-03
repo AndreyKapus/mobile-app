@@ -3,18 +3,27 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, TextInput, Button, TouchableOpacity, Platform } from 'react-native';
 
 const initialState = {
+    name: '',
     email: '',
     password: ''
   }
 
-const LoginScreen = ({navigation}) => {
+const RegistrationScreen = ({navigation}) => {
     const [state, setState] = useState(initialState)
 
     return (
       <View style={styles.container}>
         <ImageBackground style={styles.image}
-          source={require('../../images/mouse.jpg.jpg')}>
+          source={require('../../../images/mouse.jpg.jpg')}>
             <View style={styles.form}>
+            <View style={{marginTop: 20}}>
+                <Text style={styles.text}>Name</Text>
+                <TextInput 
+                  style={styles.input} 
+                  textAlign='center' 
+                  onChangeText={(value) => setState((prevState) => ({...prevState, password: value}))}
+                  />
+              </View>
               <View>
                 <Text style={styles.text}>Email</Text>
                 <TextInput 
@@ -34,17 +43,17 @@ const LoginScreen = ({navigation}) => {
               </View>
               <TouchableOpacity style={styles.signInBtn} activeOpacity={0.8}>
                 <Text style={styles.btnText}>
-                  SIGN IN
+                  SIGN UP
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.navButton}>
                   <Text style={styles.navigationTitle}>
-                    First time in app?{' '}
+                    Go to {' '}
                   <Text 
-                    onPress={() => navigation.navigate('RegistrationScreen')}
+                    onPress={() => navigation.navigate('loginScreen')}
                     style={styles.navigationText}>
-                    Go to register
+                    register
                 </Text>
                   </Text>
               </TouchableOpacity>
@@ -105,21 +114,25 @@ const LoginScreen = ({navigation}) => {
       color: '#fff',
       fontSize: 18,
     },
+
     navButton: {
       marginTop: 20,
       alignSelf: 'center',
     },
+
     navigationTitle: {
       color: '#fff',
       fontSize: 18,
     },
+
     navigationText: {
       color: `#ff7f50`,
       fontSize: 20,
     },
+
     navigationViev: {
       margin: '10',
     }
   });
 
-  export default LoginScreen;
+  export default RegistrationScreen;
