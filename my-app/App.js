@@ -38,7 +38,7 @@ import useAuth from './router/router';
 // }
 
 export default function App() {
-  const routing = useAuth(null)
+  const routing = useAuth({})
   return (
     <NavigationContainer>
       {routing}
