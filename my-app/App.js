@@ -9,21 +9,39 @@ import PostScreen from './Components/Screens/Auth/Main/PostScreen';
 import CreateScreen from './Components/Screens/Auth/Main/CreateScreen';
 import ProfileScreen from './Components/Screens/Auth/Main/ProfileScreen';
 
-
-
 const AuthStack = createStackNavigator();
 const MainTab = createBottomTabNavigator();
 
-export default function App() {
-  return (
-    <NavigationContainer>
+const useAuth = (isAuth) => {
+  if(!isAuth) {
+    return (
+      <AuthStack.Navigator>
+      <AuthStack.Screen 
+        options={{headerShown: false}}
+        name='loginScreen' 
+        component={LoginScreen}/>
+      <AuthStack.Screen 
+        options={{headerShown: false}}
+        name='RegistrationScreen' 
+        component={RegistrationScreen}/>
+    </AuthStack.Navigator>
+    )
+  }
+    return(
       <MainTab.Navigator>
         <MainTab.Screen name='Posts' component={PostScreen}/>
         <MainTab.Screen name='Create' component={CreateScreen}/>
         <MainTab.Screen name='Profile' component={ProfileScreen}/>
       </MainTab.Navigator>
-    </NavigationContainer>
+    )
+}
 
+export default function App() {
+  const routing = useAuth(null)
+  return (
+    <NavigationContainer>
+      {routing}
+    </NavigationContainer>
   );
 }
 
@@ -33,13 +51,3 @@ const styles = StyleSheet.create({
 
 // AuthTab
 
-// <AuthStack.Navigator>
-// <AuthStack.Screen 
-//   options={{headerShown: false}}
-//   name='loginScreen' 
-//   component={LoginScreen}/>
-// <AuthStack.Screen 
-//   options={{headerShown: false}}
-//   name='RegistrationScreen' 
-//   component={RegistrationScreen}/>
-// </AuthStack.Navigator>
