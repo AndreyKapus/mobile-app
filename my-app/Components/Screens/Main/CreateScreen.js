@@ -104,7 +104,8 @@ const styles = StyleSheet.create({
     },
 
     sendText: {
-        color: '#4169e1'
+        color: '#4169e1',
+        fontSize: 20,
     }
 });
 
