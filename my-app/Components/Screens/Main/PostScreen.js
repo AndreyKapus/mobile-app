@@ -1,7 +1,14 @@
+import { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 const PostScreen = ({route}) => {
-    console.log(route.params)
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        if(route.params) {
+            setPosts((prevPosts) => [...prevPosts, route.params])
+        }
+    }, [route.params])
     return (
         <View style={styles.constainer}>
             <Text>
