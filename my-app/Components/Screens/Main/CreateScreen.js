@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { Camera, CameraType } from 'expo-camera';
 import { useState } from "react";
 
@@ -7,14 +7,18 @@ const CreateScreen = () => {
     const [photo, setPhoto] = useState('')
 
     const takePhoto = async () => {
-        const photo = await camera.takePictureAsync();
-        setPhoto(photo.uri)
-        console.log('snap', photo.uri)
+        const pic = await camera.takePictureAsync();
+        setPhoto(pic.uri)
     };
-
+    
     return (
         <View style={styles.constainer}>
             <Camera style={styles.camera} ref={setCamera}>
+                {photo && (
+                    <View style={styles.takePhotoContainer}>
+                        <Image source={{uri: photo}} style={styles.photo}/>
+                    </View>
+                )}
                 <TouchableOpacity style={styles.snapButton}
                     onPress={takePhoto}
                     >
@@ -51,8 +55,20 @@ const styles = StyleSheet.create({
 
     snapText: {
         color: '#fff',
-        
     },
+
+    takePhotoContainer: {
+        position: "absolute",
+        top: 50, 
+        left: 10,
+        borderWidth: 1,
+        borderColor: '#fff',
+    },
+
+    photo: {
+        width: 200,
+        height: 200,
+    }
 });
 
 export default CreateScreen;
