@@ -36,20 +36,20 @@ const useAuth = (isAuth) => {
             options={{
                 tabBarShowLabel: false,
                 tabBarIcon: ({focused, size, color}) => 
-                <MaterialIcons name="post-add" size={24} color="black" />
+                <MaterialIcons name="post-add" size={size} color={color} />
                 }}/>
           <MainTab.Screen name='Create' component={CreateScreen}
              options={{
                 tabBarShowLabel: false,
                 tabBarIcon: ({focused, size, color}) => 
-                <MaterialIcons name="create" size={24} color="black" />
+                <MaterialIcons name="create" size={size} color={color} />
                 }}
           />
           <MainTab.Screen name='Profile' component={ProfileScreen}
             options={{
                 tabBarShowLabel: false,
                 tabBarIcon: ({focused, size, color}) => 
-                <AntDesign name="profile" size={24} color="black" />
+                <AntDesign name="profile" size={size} color={color} />
                 }}
             />
         </MainTab.Navigator>
