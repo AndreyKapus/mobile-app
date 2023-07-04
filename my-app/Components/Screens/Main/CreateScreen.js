@@ -1,14 +1,23 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { Camera, CameraType } from 'expo-camera';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CreateScreen = () => {
     const [camera, setCamera] = useState(null);
     const [photo, setPhoto] = useState('')
+    const [hasPermission, setHasPermission] = useState(null);
+
+    useEffect(() => {
+        (async () => {
+     const { status } = await Camera.requestCameraPermissionsAsync();
+     setHasPermission(status === "granted");
+        })();
+      }, []);
 
     const takePhoto = async () => {
         const pic = await camera.takePictureAsync();
         setPhoto(pic.uri)
+        console.log(pic.uri)
     };
     
     return (
