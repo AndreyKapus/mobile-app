@@ -36,13 +36,20 @@ const CreateScreen = () => {
                     </Text>
                 </TouchableOpacity>
             </Camera>
+            <TouchableOpacity style={styles.sendButton}
+                    onPress={takePhoto}
+                    >
+                    <Text style={styles.sendText}>
+                        SEND
+                    </Text>
+                </TouchableOpacity>
         </View>
     )
 };
 
 const styles = StyleSheet.create({
     constainer: {
-        flex: 1,
+        height: '80%',
     },
 
     camera: {
@@ -72,11 +79,28 @@ const styles = StyleSheet.create({
         left: 10,
         borderWidth: 1,
         borderColor: '#fff',
+        borderRadius: 10,
     },
 
     photo: {
         width: 200,
         height: 200,
+        borderRadius: 10,
+    },
+    sendButton: {
+        marginHorizontal: 30,
+        marginTop: 20,
+        borderWidth: 1,
+        borderRadius: 10,
+        height: 60,
+        border: 1,
+        borderColor: '#4169e1',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    sendText: {
+        color: '#4169e1'
     }
 });
 
