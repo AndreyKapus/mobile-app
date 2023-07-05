@@ -15,8 +15,8 @@ const PostScreen = ({route}) => {
             <FlatList data={posts}
              keyExtractor={(item, index) => index.toString()}
              renderItem={({item}) => 
-             <View style={{marginBottom: 10}}>
-                <Image source={{uri: item.photo}} style={{width: 300, height: 300}}/>
+             <View style={styles.imageContainer}>
+                <Image source={{uri: item.photo}} style={styles.image}/>
              </View>}
              />
         </View>
@@ -28,7 +28,18 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         // alignItems: 'center',
+    },
+
+    imageContainer: {
+        marginBottom: 10,
+        justifyContent: 'center',
+        alignItems: "center",
+    },
+
+    image: {
+        width: '90%', 
+        height: 300,
     }
-})
+});
 
 export default PostScreen;
