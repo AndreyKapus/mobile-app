@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 
 const PostScreen = ({route}) => {
     const [posts, setPosts] = useState([]);
@@ -11,9 +12,13 @@ const PostScreen = ({route}) => {
     }, [route.params])
     return (
         <View style={styles.constainer}>
-            <Text>
-                 PostScreen
-            </Text>
+            <FlatList data={posts}
+             keyExtractor={(item, index) => index.toString()}
+             renderItem={({item}) => 
+             <View style={{marginBottom: 10}}>
+                <Image source={{uri: item.photo}} style={{width: 300, height: 300}}/>
+             </View>}
+             />
         </View>
     )
 };
@@ -22,7 +27,7 @@ const styles = StyleSheet.create({
     constainer: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
+        // alignItems: 'center',
     }
 })
 
