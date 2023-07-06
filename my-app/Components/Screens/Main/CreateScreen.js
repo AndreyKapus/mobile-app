@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { Camera, CameraType } from 'expo-camera';
 import { useState, useEffect } from "react";
-// import * as Location from 'expo-location'
+import * as Location from 'expo-location'
 
 const CreateScreen = ({navigation}) => {
     const [camera, setCamera] = useState(null);
@@ -32,7 +32,8 @@ const CreateScreen = ({navigation}) => {
 
     const takePhoto = async () => {
         const pic = await camera.takePictureAsync();
-        // const location = await Location.getCurrentPositionAsync();
+        const location = await Location.getCurrentPositionAsync();
+        console.log("location -->", location)
         // console.log('location-> ', location)
         setPhoto(pic.uri);
     };
