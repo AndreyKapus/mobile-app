@@ -1,15 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, TextInput, Button, TouchableOpacity, Platform } from 'react-native';
+import { useDispatch } from 'react-redux';
+import {authSignUpUser} from '../../../Redux/auth/authOperations';
 
 const initialState = {
     name: '',
     email: '',
     password: ''
-  }
+  };
 
 const RegistrationScreen = ({navigation}) => {
-    const [state, setState] = useState(initialState)
+    const [state, setState] = useState(initialState);
+
+    const dispatch = useDispatch();
+
+    const handleSubmit = () => {
+      dispatch(authSignUpUser(state))
+      console.log(state)
+      setState(initialState)
+    }
 
     return (
       <View style={styles.container}>
@@ -21,7 +31,7 @@ const RegistrationScreen = ({navigation}) => {
                 <TextInput 
                   style={styles.input} 
                   textAlign='center' 
-                  onChangeText={(value) => setState((prevState) => ({...prevState, password: value}))}
+                  onChangeText={(value) => setState((prevState) => ({...prevState, name: value}))}
                   />
               </View>
               <View>
@@ -41,7 +51,7 @@ const RegistrationScreen = ({navigation}) => {
                   onChangeText={(value) => setState((prevState) => ({...prevState, password: value}))}
                   />
               </View>
-              <TouchableOpacity style={styles.signInBtn} activeOpacity={0.8}>
+              <TouchableOpacity style={styles.signInBtn} activeOpacity={0.8} onPress={handleSubmit}>
                 <Text style={styles.btnText}>
                   SIGN UP
                 </Text>

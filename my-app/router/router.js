@@ -35,11 +35,13 @@ const useAuth = (isAuth) => {
           <MainTab.Screen name='Posts' component={PostScreen}
             options={{
                 tabBarShowLabel: false,
+                headerShown: false,
                 tabBarIcon: ({focused, size, color}) => 
                 <MaterialIcons name="post-add" size={size} color={color} />
                 }}/>
           <MainTab.Screen name='Create' component={CreateScreen}
              options={{
+                headerShown: false,
                 tabBarShowLabel: false,
                 tabBarIcon: ({focused, size, color}) => 
                 <MaterialIcons name="create" size={size} color={color} />
@@ -47,6 +49,7 @@ const useAuth = (isAuth) => {
           />
           <MainTab.Screen name='Profile' component={ProfileScreen}
             options={{
+                headerShown: false,
                 tabBarShowLabel: false,
                 tabBarIcon: ({focused, size, color}) => 
                 <AntDesign name="profile" size={size} color={color} />

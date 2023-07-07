@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import {store} from './Redux/store/store'
 
 export default function App() {
-  const routing = useAuth({})
+  const routing = useAuth(false)
   return (
     <Provider store={store}>
       <NavigationContainer>
