@@ -1,14 +1,16 @@
-import db from '../../Firebase/config'
+import firebase from '../../Firebase/config'
 
-// const authSignInUser = async () => (dispatch, getState) => {}
 
 export const authSignUpUser = ({email, password, name}) => async (dispatch, getState) => {
     try{
-        const user = await db.auth().createUserWithEmailAndPassword(email, password);
-        // console.log('user: ', user)
+        const user = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        console.log('user: ', user)
     } catch(error) {
-        console.log(error)
+        console.log(error);
+        console.log(error.message)
     }
-} 
+};
+
+// const authSignInUser = async () => (dispatch, getState) => {}
 
 // const authSignOutUser = async () => (dispatch, getState) => {}

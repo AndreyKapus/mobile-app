@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, TextInput, Button, TouchableOpacity, Platform } from 'react-native';
 import { useDispatch } from 'react-redux';
-import {authSignUpUser} from '../../../Redux/auth/authOperations';
+import { authSignUpUser } from '../../../Redux/auth/authOperations';
 
 const initialState = {
     name: '',
@@ -14,10 +14,10 @@ const RegistrationScreen = ({navigation}) => {
     const [state, setState] = useState(initialState);
 
     const dispatch = useDispatch();
-
+    
     const handleSubmit = () => {
-      dispatch(authSignUpUser(state))
-      console.log(state)
+      dispatch(authSignUpUser(state));
+      
       setState(initialState)
     }
 
